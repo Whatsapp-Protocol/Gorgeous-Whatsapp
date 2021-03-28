@@ -285,7 +285,7 @@ public class ChatController implements Initializable {
         }
 
         String jid = content.GetAttributeValue("from");
-        if (jid.equals(jid)) {
+        if (selfJid.equals(jid)) {
             UpdateSelfHead(content);
             return;
         }
