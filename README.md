@@ -1,6 +1,6 @@
 # Gorgeous
 
-<a href="https://paypal.me/gorgeous007" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" /></a>
+<a href="https://paypal.me/welove88" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" /></a>
 
 The WhatsApp lib
 
