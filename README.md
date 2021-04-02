@@ -15,7 +15,7 @@ You have two ways to log in
   
   ## 2) Use the emulator or mobile phone (root) to register the account, and then use the tool to extract the login configuration file.
 
-# Register use Gorgeous(First Method)
+# Register use Gorgeous(The registration will be blocked, I have fixed it, it will be updated later)
 ##  1) Opening the program will automatically jump to the login page and click the registration button.
 ![clickreg](https://raw.githubusercontent.com/lovethiscode/Gorgeous-Whatsapp/main/images/clickreg.png)
 
