@@ -11,11 +11,16 @@ The WhatsApp lib
 
 # How to log in
 You have two ways to log in
-  ## 1) Use Gorgeous to register an account that may be blocked.
+  ## 1) Use Demo to register an account that may be blocked.
   
   ## 2) Use the emulator or mobile phone (root) to register the account, and then use the tool to extract the login configuration file.
 
-# Register use Gorgeous(The registration will be blocked, I have fixed it, it will be updated later)
+# How to build Demo
+  DEMO relies on the QT5 build environment and uses the QT5.12 version. After installing Qt, open the Pro file directly to compile.
+
+
+
+# Register use Demo
 ##  1) Opening the program will automatically jump to the login page and click the registration button.
 ![clickreg](https://raw.githubusercontent.com/lovethiscode/Gorgeous-Whatsapp/main/images/clickreg.png)
 
