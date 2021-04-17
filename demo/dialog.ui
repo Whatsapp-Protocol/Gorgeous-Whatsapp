@@ -24,34 +24,26 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Setting up the proxy allows you to register successfully.Click Proxy</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1">
         <item>
          <widget class="QLabel" name="label">
           <property name="text">
-           <string>cc:</string>
+           <string>fullphone(cc+phone):</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="ccs">
-          <property name="editable">
-           <bool>true</bool>
+         <widget class="QComboBox" name="fullphone">
+          <property name="toolTip">
+           <string>8613595465445</string>
           </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1">
-        <item>
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>phone:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="phones">
           <property name="editable">
            <bool>true</bool>
           </property>

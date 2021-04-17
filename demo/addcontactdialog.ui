@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>添加好友</string>
+   <string>Add Friend</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
