@@ -67,8 +67,6 @@ You have two ways to log in
 
 
 # License:
-Email: jinxing007X@outlook.com
-
 Telegram :gorgeous008
 
 Gorgeous is licensed under the GPLv3+: http://www.gnu.org/licenses/gpl-3.0.html.
