@@ -43,7 +43,7 @@ Dialog::Dialog(QWidget* parent) : QDialog(parent), ui(new Ui::Dialog) {
   common_db_.setDatabaseName(QApplication::applicationDirPath() +
                              "\\Gorgeous.db");
   if (!common_db_.open()) {
-    QMessageBox::warning(0, QString::fromStdWString(L"数据库错误"),
+    QMessageBox::warning(0, QString::fromStdWString(L"Database error"),
                          common_db_.lastError().text());
     return;
   }
@@ -73,8 +73,8 @@ void Dialog::OnConnected() {
 }
 
 void Dialog::OnDisconnect() {
-  QMessageBox::warning(this, QString::fromStdWString(L"错误"),
-                       QString::fromStdWString(L"连接服务器失败"));
+  QMessageBox::warning(this, QString::fromStdWString(L"Error"),
+                       QString::fromStdWString(L"Connect server failed"));
 }
 
 void Dialog::onMessageReceived(const QString& message) {
@@ -128,8 +128,8 @@ void Dialog::OnError(const QAbstractSocket::SocketError& error) {}
 void Dialog::on_login_clicked() {
   QString fullphone = ui->fullphone->currentText();
   if (fullphone.isEmpty()) {
-    QMessageBox::warning(this, QString::fromStdWString(L"错误"),
-                         QString::fromStdWString(L"参数没填完整"));
+    QMessageBox::warning(this, QString::fromStdWString(L"Error"),
+                         QString::fromStdWString(L"Check params"));
     return;
   }
 
@@ -196,7 +196,7 @@ void Dialog::HandleSyncContact(const QString& message,
     } else {
       //提示
       ui->output->insertPlainText(
-          QString::fromStdWString(L"%1 没有开通whatsapp").arg(jid));
+          QString::fromStdWString(L"%1 NO whatsapp").arg(jid));
     }
 
     user = user.nextSiblingElement();
@@ -359,7 +359,7 @@ void Dialog::LoadFromDb() {
   db_.setDatabaseName(QApplication::applicationDirPath() + "\\" +
                       ui->fullphone->currentText());
   if (!db_.open()) {
-    QMessageBox::warning(0, QString::fromStdWString(L"数据库错误"),
+    QMessageBox::warning(0, QString::fromStdWString(L"Database error"),
                          db_.lastError().text());
     return;
   }
@@ -509,13 +509,14 @@ void Dialog::on_contactlists_customContextMenuRequested(const QPoint& pos) {
       if (IsGroup(jid.toStdString())) {
         {
           modify_group_subject =
-              new QAction(QString::fromStdWString(L"修改群组名"), this);
+              new QAction(QString::fromStdWString(L"ModifyGroupName"), this);
           popMenu->addAction(modify_group_subject);
           connect(modify_group_subject, SIGNAL(triggered()), this,
                   SLOT(on_modify_group_name()));
         }
         {
-          leave_group = new QAction(QString::fromStdWString(L"离开群组"), this);
+          leave_group =
+              new QAction(QString::fromStdWString(L"LeaveGroup"), this);
           popMenu->addAction(leave_group);
           connect(leave_group, SIGNAL(triggered()), this,
                   SLOT(on_leave_group()));
@@ -543,7 +544,7 @@ void Dialog::on_delete_contact() {
 }
 
 void Dialog::on_create_group() {
-  CommonInputDialog dlg(QString::fromStdWString(L"输入群名称"));
+  CommonInputDialog dlg(QString::fromStdWString(L"Input Group Subject"));
   if (dlg.exec() != QDialog::Accepted) {
     return;
   }
@@ -567,7 +568,7 @@ void Dialog::on_create_group() {
 }
 
 void Dialog::on_modify_group_name() {
-  CommonInputDialog dlg(QString::fromStdWString(L"输入群名称"));
+  CommonInputDialog dlg(QString::fromStdWString(L"Input Group Subject"));
   if (dlg.exec() != QDialog::Accepted) {
     return;
   }

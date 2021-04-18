@@ -28,10 +28,7 @@ void RegisterDialog::OnConnected() {
           &RegisterDialog::onMessageReceived);
 }
 
-void RegisterDialog::OnDisconnect() {
-  // QMessageBox::warning(this, QString::fromStdWString(L"错误"),
-  // QString::fromStdWString(L"连接服务器失败"));
-}
+void RegisterDialog::OnDisconnect() {}
 
 void RegisterDialog::onMessageReceived(const QString& message) {
   if (register_status_ == kStatusInit) {
@@ -68,8 +65,8 @@ void RegisterDialog::on_coderequest_clicked() {
   QString cc = ui->cc->text();
   QString phone = ui->phone->text();
   if (cc.isEmpty() || phone.isEmpty()) {
-    QMessageBox::warning(this, QString::fromStdWString(L"错误"),
-                         QString::fromStdWString(L"参数没填完整"));
+    QMessageBox::warning(this, QString::fromStdWString(L"Error"),
+                         QString::fromStdWString(L"Check your params"));
     return;
   }
   HandleInitStatus();
@@ -80,8 +77,8 @@ void RegisterDialog::on_register_2_clicked() {
   QString phone = ui->phone->text();
   QString code = ui->code->text();
   if (cc.isEmpty() || phone.isEmpty() || code.isEmpty()) {
-    QMessageBox::warning(this, QString::fromStdWString(L"错误"),
-                         QString::fromStdWString(L"参数没填完整"));
+    QMessageBox::warning(this, QString::fromStdWString(L"Error"),
+                         QString::fromStdWString(L"Check your params"));
     return;
   }
 
@@ -118,7 +115,7 @@ void RegisterDialog::HandleInitStatus() {
   document.setObject(command);
   QByteArray byteArray = document.toJson(QJsonDocument::Compact);
   register_websocket_.sendTextMessage(QString(byteArray));
-  ui->tips->setText(QString::fromStdWString(L"获取账号是否存在..."));
+  ui->tips->setText(QString::fromStdWString(L"Check account exist ..."));
   register_status_ = kStatusExist;
 }
 
@@ -132,9 +129,9 @@ void RegisterDialog::HandleExistStatus(const QString& message) {
   QJsonObject root = doucment.object();
   QString status = root["status"].toString();
   if (status == "ok") {
-    ui->tips->setText(QString::fromStdWString(L"账号存在可以直接登录"));
+    ui->tips->setText(QString::fromStdWString(L"Account exist, login "));
   } else {
-    ui->tips->setText(QString::fromStdWString(L"输入手机验证码..."));
+    ui->tips->setText(QString::fromStdWString(L"Input code..."));
     ui->code_group->setVisible(true);
     ui->coderequest->setVisible(false);
   }
@@ -150,7 +147,7 @@ void RegisterDialog::HandleRegisterStatus(const QString& message) {
   QJsonObject root = doucment.object();
   QString status = root["status"].toString();
   if (status == "ok") {
-    ui->tips->setText(QString::fromStdWString(L"注册成功，可以登录了"));
+    ui->tips->setText(QString::fromStdWString(L"Register success，try login"));
   } else {
     ui->tips->setText(message);
   }
