@@ -104,12 +104,6 @@ public class LoginController implements Initializable, GorgeousEngine.GorgeousEn
         return  engine;
     }
     public void loginButtonAction() throws IOException {
-        /*FXMLLoader fmxlLoader = new FXMLLoader(getClass().getResource("/views/ChatView.fxml"));
-        Parent window = (Pane) fmxlLoader.load();
-        con = fmxlLoader.<ChatController>getController();
-        this.scene = new Scene(window);
-        showScene("84862988210");*/
-
         if (!checkVersion.get()) {
             //check you can visit  https://www.whatsapp.com/android/
             showErrorDialog("CheckWhatsappVersion failed, check your network");
@@ -343,11 +337,5 @@ public class LoginController implements Initializable, GorgeousEngine.GorgeousEn
     @Override
     public void log(int priority, String tag, String message) {
         System.out.println(message);
-    }
-
-    public void OnClickRegister(ActionEvent actionEvent) {
-        Stage addContact = StageFactory.Create("/views/Register.fxml", 411, 199, "Register");
-        addContact.setResizable(false);
-        addContact.show();
     }
 }

@@ -60,7 +60,6 @@
             </Label>
 
             <Button id="selectBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#selectButtonAction" stylesheets="@../styles/Login.css" text="Select" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Button id="register" alignment="CENTER" contentDisplay="CENTER"  mnemonicParsing="false" onAction="#OnClickRegister"   stylesheets="@../styles/Login.css" text="Reg" GridPane.columnIndex="2" GridPane.rowIndex="5" />
          </children>
       </GridPane>
    </right>
