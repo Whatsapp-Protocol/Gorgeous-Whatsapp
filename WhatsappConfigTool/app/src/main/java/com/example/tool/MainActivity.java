@@ -407,25 +407,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AxolotlSQLiteOpenHelper srcDb = new AxolotlSQLiteOpenHelper(this, new File(dir, "axolotl.db").getAbsolutePath());
         SQLiteDatabase writeDb = srcDb.getWritableDatabase();
         writeDb.beginTransaction();
+        //创建config 表
         try {
-            //创建config 表
-            writeDb.execSQL("CREATE TABLE IF NOT EXISTS settings(key text PRIMARY KEY,value text)");
+            writeDb.execSQL("CREATE TABLE IF NOT EXISTS settings(`key` text PRIMARY KEY,value text)");
             ContentValues values = new ContentValues();
             values.put("key", "env");
             values.put("value", Base64.encodeToString(envBuild.build().toByteArray(), Base64.NO_WRAP));
-            writeDb.insert("settings",null, values);
+            writeDb.insert("settings", null, values);
+            writeDb.setTransactionSuccessful();
+        } catch (Exception e) {
+            Log.e("TAG", e.getMessage());
+        } finally {
+            writeDb.endTransaction();
+            writeDb.close();
         }
-        catch (Exception e) {
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(MainActivity.this, "error: you need login on the device first", Toast.LENGTH_LONG).show();
-                }
-            });
-        }
-
-        writeDb.endTransaction();
-        writeDb.close();
     }
 
     void ParsePref(String dir, DeviceEnv.AndroidEnv.Builder envBuild) {
