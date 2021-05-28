@@ -7,7 +7,9 @@ The WhatsApp lib
     Yowsup is no longer updated. There is no WhatsApp library available, but many people need it. I will gradually open source the library I have used for a long time. This library is written in Java. Will include all features except registration. Because the registration part is not in the scope of this open source.
 # If this code is useful for you, please give me a STAR
 
-
+# Linux
+	sudo apt install libssl-dev
+	sudo apt-get install curl libcurl4-openssl-dev
 
 # How to log in
 You have two ways to log in
@@ -61,9 +63,7 @@ You have two ways to log in
     Application will visit https://www.whatsapp.com/android/ to check the version of whatsapp, please confirm whether your network can normal connection, try again or set agent.
     To avoid version discrepancies, call the NoiseJni.CheckWhatsappVersion function once to check the version. 
 
-#Linux
-	sudo apt install libssl-dev
-	sudo apt-get install curl libcurl4-openssl-dev
+
 
 
 # License:
