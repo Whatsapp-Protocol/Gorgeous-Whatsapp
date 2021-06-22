@@ -1,4 +1,5 @@
 # Gorgeous
+Telegram :gorgeous008
 
 <a href="https://paypal.me/welove88" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" /></a>
 
@@ -67,7 +68,6 @@ You have two ways to log in
 
 
 # License:
-Telegram :gorgeous008
 
 Gorgeous is licensed under the GPLv3+: http://www.gnu.org/licenses/gpl-3.0.html.
 
