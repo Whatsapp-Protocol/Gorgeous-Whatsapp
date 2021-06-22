@@ -1542,7 +1542,9 @@ public class GorgeousEngine implements NoiseHandshake.HandshakeNotify {
         }
         encNode.SetData(axolotlManager_.GroupEncrypt(groupId, message));
         msg.AddChild(encNode);
-        msg.AddChild(participants);
+        if (participants.GetChildren() != null) {
+            msg.AddChild(participants);
+        }
         AddTask(msg);
     }
 
