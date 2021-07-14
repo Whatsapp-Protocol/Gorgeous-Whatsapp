@@ -1,6 +1,8 @@
 # Gorgeous
 Telegram :gorgeous008
 
+# There is no more time to devote to the project, and the project is no longer updated.
+
 <a href="https://paypal.me/welove88" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" /></a>
 
 The WhatsApp lib
