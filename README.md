@@ -1,5 +1,9 @@
 # Gorgeous
 Telegram :gorgeous008
+# Donate 
+ TRX : TSjwS7k78nG5Y4P1aAxob81qSup3Q5Qsu2
+ 
+ ![clickreg](https://raw.githubusercontent.com/lovethiscode/Gorgeous-Whatsapp/main/images/trx.png)
 
 # There is no more time to devote to the project, and the project is no longer updated.
 
