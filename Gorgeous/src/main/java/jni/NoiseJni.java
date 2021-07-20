@@ -21,5 +21,5 @@ public class NoiseJni {
 
     public static native int Split(long instance);
 
-    public static native byte[] InitData(byte[] routeInfo);
+    public static native byte[] InitData(byte[] routeInfo, String token);
 }

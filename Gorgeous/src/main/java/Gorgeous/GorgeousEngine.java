@@ -75,7 +75,7 @@ public class GorgeousEngine implements NoiseHandshake.HandshakeNotify {
         tmpDir_ = tmpDir;
     }
 
-    public boolean StartEngine() {
+    public boolean StartEngine(String token) {
         axolotlManager_ = new AxolotlManager(configPath_);
         try {
             byte[] envBuffer =  axolotlManager_.GetBytesSetting("env");
@@ -85,7 +85,7 @@ public class GorgeousEngine implements NoiseHandshake.HandshakeNotify {
             useragentBuilder.setSecondary(21);
             useragentBuilder.setTertiary(5);
             useragentBuilder.setQuaternary(14);
-            noiseHandshake_ = new NoiseHandshake(this, proxy_);
+            noiseHandshake_ = new NoiseHandshake(this, proxy_, token);
             noiseHandshake_.StartNoiseHandShake( envBuilder_.build());
             return true;
         }

@@ -309,10 +309,12 @@ public class NoiseHandshake {
     UntypedStateMachine handshakeStateMachine_;
     Env.DeviceEnv.AndroidEnv env_;
     byte[] publicServerKey_ = null;
+    String token_;
 
-    public NoiseHandshake(HandshakeNotify notify, Proxy proxy) {
+    public NoiseHandshake(HandshakeNotify notify, Proxy proxy, String token) {
         notify_ = notify;
         proxy_ = proxy;
+        token_ = token;
     }
 
     //开始进行noise 握手， 为了方便同步收发数据，这里简单在一个线程进行
@@ -383,7 +385,7 @@ public class NoiseHandshake {
     void HandleNoiseHandshake() throws IOException, NoSuchAlgorithmException, ShortBufferException, BadPaddingException {
         //连接成功,发送初始化信息
         byte[] routingInfo = env_.getEdgeRoutingInfo().toByteArray();
-        ChannelFuture future =  socketChannel_.writeAndFlush(Unpooled.copiedBuffer(NoiseJni.InitData(routingInfo)));
+        ChannelFuture future =  socketChannel_.writeAndFlush(Unpooled.copiedBuffer(NoiseJni.InitData(routingInfo, token_)));
         future.addListener(sendFuture -> {
             if (sendFuture.isSuccess()) {
                 if (!env_.hasServerStaticPublic() || env_.getServerStaticPublic() == null) {

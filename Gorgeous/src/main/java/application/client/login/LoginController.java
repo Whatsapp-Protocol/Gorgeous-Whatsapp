@@ -120,7 +120,7 @@ public class LoginController implements Initializable, GorgeousEngine.GorgeousEn
             engine.StopEngine();
         }
         engine = new GorgeousEngine(username, this, null, tmpDir);
-        boolean start = engine.StartEngine();
+        boolean start = engine.StartEngine("your token");
         if (!start) {
             engine.StopEngine();
             engine = null;
