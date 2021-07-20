@@ -2,10 +2,11 @@
 Telegram :gorgeous008
 # Donate 
  TRX : TSjwS7k78nG5Y4P1aAxob81qSup3Q5Qsu2
+ ETH    : 0x960e8eB35cEF615101BCCFC6c417E42CFEc1440B
  
  ![clickreg](https://raw.githubusercontent.com/lovethiscode/Gorgeous-Whatsapp/main/images/trx.png)
 
-# There is no more time to devote to the project, and the project is no longer updated.
+# There is no more time to devote to the project, and the project is no longer updated. If you have any problems, you can contact me if you want to donate. Telegram :gorgeous008
 
 <a href="https://paypal.me/welove88" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" /></a>
 
