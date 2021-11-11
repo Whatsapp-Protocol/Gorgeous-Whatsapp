@@ -5,79 +5,292 @@ https://github.com/lovethiscode/Gorgeous_Line
 # Gorgeous
 Telegram :gorgeous008
 
-
-# Donate 
- TRX : TSjwS7k78nG5Y4P1aAxob81qSup3Q5Qsu2
-
- ETH : 0x960e8eB35cEF615101BCCFC6c417E42CFEc1440B
- 
- ![clickreg](https://raw.githubusercontent.com/lovethiscode/Gorgeous-Whatsapp/main/images/trx.png)
-
-# There is no more time to devote to the project, and the project is no longer updated. If you have any problems, you can contact me if you want to donate. Telegram :gorgeous008
-
 <a href="https://paypal.me/welove88" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" /></a>
 
-The WhatsApp lib
+# The WhatsApp Websocket API
 
-    Yowsup is no longer updated. There is no WhatsApp library available, but many people need it. I will gradually open source the library I have used for a long time. This library is written in Java. Will include all features except registration. Because the registration part is not in the scope of this open source.
-# If this code is useful for you, please give me a STAR
+  1) This project is an open source project. Considering that many people will not deploy, a test server is deployed here for testing only.
 
-# Linux
-	sudo apt install libssl-dev
-	sudo apt-get install curl libcurl4-openssl-dev
+  2)  The websocket maximum frame supports 10M, and the media file sent cannot exceed 10M, otherwise the websocket will be disconnected.
 
-# How to log in
-You have two ways to log in
-  ## 1) Use Demo to register an account that may be blocked.
-  
-  ## 2) Use the emulator or mobile phone (root) to register the account, and then use the tool to extract the login configuration file.
-
-# How to build Demo
-  DEMO relies on the QT5 build environment and uses the QT5.12 version. After installing Qt, open the Pro file directly to compile.
+### Test Server:  ws://8.210.124.139:16090
 
 
+# Login
+````java
+    //if 
+     command.put("command", "login");
+    command.put("userName", "xxxx");
+    //config If you have logged in, you can leave it out.
+    command.put("config", Base64.getEncoder().encodeToString(StringUtil.ReadFileContent("xxxx")));
+    command.put("proxy_type",-1); // -1 no proxy, 0 http proxy, 1 socks5 proxy
+    command.put("proxy_server", "xxx");
+    command.put("proxy_port", 1234);
+    command.put("proxy_username", ""); //optional
+    command.put("proxy_password", ""); //optional
+    command.put("reset", false); //optional if true  Will use the config you passed in.
+````
 
-# Register use Demo
-##  1) Opening the program will automatically jump to the login page and click the registration button.
-![clickreg](https://raw.githubusercontent.com/lovethiscode/Gorgeous-Whatsapp/main/images/clickreg.png)
-
-## 2) Enter the country code and phone number and click on CodeQuest.
-![coderequest](https://raw.githubusercontent.com/lovethiscode/Gorgeous-Whatsapp/main/images/coderequest.png)
-
-## 3) Enter the SMS verification code and click Register
-![inputcode](https://raw.githubusercontent.com/lovethiscode/Gorgeous-Whatsapp/main/images/inputcode.png)
-
-## 4) After successful registration, jump to the main page and select configuration file to log in
-
-# Extract from device(Second Method)
- If you already have an account on your Android phone or emulator, you can simply extract the environment and log in.
-
-## 1) Install APK to mobile phone or simulator. (whatsapp_config_tool.apk)
-
-## 2) To make sure the device is root, click Export (Gorgeous)
-![click_export](https://raw.githubusercontent.com/lovethiscode/Gorgeous-Whatsapp/main/images/click_export.png)
-
-## 3) Save the extracted configuration file to the computer (axolotl.db), you can change the file name arbitrarily;
-
-
-# login
-![main](https://raw.githubusercontent.com/lovethiscode/Gorgeous-Whatsapp/main/images/main.png)
-
-# addcontact
-![addcontact](https://raw.githubusercontent.com/lovethiscode/Gorgeous-Whatsapp/main/images/addcontact.png)
-
-# updatehead
-![updatehead](https://raw.githubusercontent.com/lovethiscode/Gorgeous-Whatsapp/main/images/updatehead.png)
-
-# sendmessage
-![sendmessage](https://raw.githubusercontent.com/lovethiscode/Gorgeous-Whatsapp/main/images/sendmessage.png)
+# SyncContact
+````java
+    JSONObject command = new JSONObject();
+    command.put("command", "SyncContact");
+    JSONArray phones = new JSONArray();
+    phones.add("+66xxxx6");
+     command.put("task_id", 1);
+    command.put("phones", phones);
 
 
+````
 
-# warning
-    Application will visit https://www.whatsapp.com/android/ to check the version of whatsapp, please confirm whether your network can normal connection, try again or set agent.
-    To avoid version discrepancies, call the NoiseJni.CheckWhatsappVersion function once to check the version. 
+# GetHDHead
+````java
+    JSONObject command = new JSONObject();
+    command.put("task_id", 3);
+    command.put("command", "GetHDHead");
+    command.put("jid", "xxxx");
+````
 
+# SetHDHead
+````java
+    // 192 * 192
+    JSONObject command = new JSONObject();
+    command.put("task_id", 4);
+    command.put("command", "SetHDHeadData");
+    command.put("content", "xxxx"); // base64(file content)
+````
+# SetPushName
+````java
+    JSONObject command = new JSONObject();
+    command.put("task_id", 111);
+    command.put("command", "SetPushName");
+    command.put("pushname", "xxxx");
+````
+
+# SetStatus
+````java
+    JSONObject command = new JSONObject();
+    command.put("task_id", 111);
+    command.put("command", "SetStatus");
+    command.put("status", "xxxx");
+````
+
+# CreateGroup
+````java
+    JSONObject command = new JSONObject();
+    command.put("task_id", 111);
+    command.put("command", "CreateGroup");
+    command.put("subject", "subject");
+
+    
+    JSONArray members = new JSONArray();
+    members.put("111");
+    members.put("2222");
+    command.put("members", members);
+````
+
+# ModifyGroupSubject
+````java
+    JSONObject command = new JSONObject();
+    command.put("task_id", 111);
+    command.put("command", "ModifyGroupSubject");
+    command.put("jid", "xxxx");
+    command.put("subject", "xxxx");
+````
+
+# ModifyGroupDesc
+````java
+    JSONObject command = new JSONObject();
+    command.put("task_id", 111);
+    command.put("command", "ModifyGroupDesc");
+    command.put("jid", "xxxx");
+    command.put("desc", "xxxx");
+
+````
+
+# GetInviteLink
+````java
+    // //https://chat.whatsapp.com/ + "code"
+    JSONObject command = new JSONObject();
+    command.put("task_id", 111);
+    command.put("command", "GetInviteLink");
+    command.put("jid", "xxxx");
+    command.put("reset", false); 
+
+````
+
+# AcceptInviteToGroup
+````java
+    // //https://chat.whatsapp.com/ + "code"
+    JSONObject command = new JSONObject();
+    command.put("task_id", 111);
+    command.put("command", "AcceptInviteToGroup");
+    command.put("token", "xxxx");
+
+````
+
+# InviteGroupMember
+````java
+    JSONObject command = new JSONObject();
+    command.put("task_id", 111);
+    command.put("command", "InviteGroupMembers");
+    command.put("jid", "xxx");
+
+    
+    JSONArray members = new JSONArray();
+    members.put("111");
+    members.put("2222");
+    command.put("members", members);
+````
+
+# RemoveGroupMember
+````java
+    JSONObject command = new JSONObject();
+    command.put("task_id", 111);
+    command.put("command", "RemoveGroupMembers");
+    command.put("jid", "xxx");
+
+    
+    JSONArray members = new JSONArray();
+    members.put("111");
+    members.put("2222");
+    command.put("members", members);
+````
+
+# PromoteGroupMembers
+````java
+    JSONObject command = new JSONObject();
+    command.put("task_id", 111);
+    command.put("command", "PromoteGroupMembers");
+    command.put("jid", "xxx");
+
+    
+    JSONArray members = new JSONArray();
+    members.put("111");
+    members.put("2222");
+    command.put("members", members);
+````
+
+
+# DemoteGroupMembers
+````java
+    JSONObject command = new JSONObject();
+    command.put("task_id", 111);
+    command.put("command", "DemoteGroupMembers");
+    command.put("jid", "xxx");
+
+    
+    JSONArray members = new JSONArray();
+    members.put("111");
+    members.put("2222");
+    command.put("members", members);
+````
+
+# GetGroupInfo
+````java
+    JSONObject command = new JSONObject();
+    command.put("task_id", 111);
+    command.put("command", "GetGroupInfo");
+    command.put("jid", "xxxx");
+````
+
+# LeaveGroups
+````java
+    JSONObject command = new JSONObject();
+    command.put("task_id", 111);
+    command.put("command", "LeaveGroups");
+    
+    
+        
+    JSONArray members = new JSONArray();
+    members.put("111");
+    members.put("2222");
+    command.put("groups", members);
+````
+
+
+# SendText
+````java
+    JSONObject command = new JSONObject();
+    command.put("task_id", 2);
+    command.put("command", "SendText");
+    command.put("jid", "xxxx");
+    command.put("content", "xxx");
+````
+
+# SendImage
+````java
+     command.put("task_id", 4);
+    command.put("command", "SendImage");
+    command.put("jid", "xxx");
+    command.put("data", Base64.getEncoder().encodeToString(xx.ReadFileContent("xx")));
+    command.put("thumbnail", Base64.getEncoder().encodeToString(xx.ReadFileContent("xxx")));
+    command.put("caption", "hellokg");
+````
+
+# SendDocument
+````java
+    command.put("task_id", 4);
+    command.put("command", "SendDocument");
+    command.put("jid", "xxxx@g.us");
+    command.put("data", Base64.getEncoder().encodeToString(xx.ReadFileContent("xxxx")));
+    command.put("filename", "xxxx");
+````
+
+
+# SendVideo
+````java
+     command.put("task_id", 4);
+    command.put("command", "SendVideo");
+    command.put("jid", "xxx@s.whatsapp.net");
+    command.put("data", Base64.getEncoder().encodeToString(StringUtil.ReadFileContent("xxx.mp4")));
+    command.put("thumbnail", Base64.getEncoder().encodeToString(StringUtil.ReadFileContent("main.jpg")));
+    command.put("caption", "hellokg");
+    command.put("duration", 13000);
+    command.put("width", 465);
+    command.put("height", 892);
+````
+
+
+# SendPTT
+````java
+    // AV_CODEC_ID_OPUS, 48000, 64 * 1000, 1
+    command.put("task_id", 4);
+    command.put("command", "SendPTT");
+    command.put("jid", "xxx@s.whatsapp.net");
+    command.put("data", Base64.getEncoder().encodeToString(StringUtil.ReadFileContent("ptt.ogg")));
+                  
+````
+
+# SendVcard
+````java
+    JSONObject command = new JSONObject();
+    command.put("task_id", 111);
+    command.put("command", "SendVcard");
+    command.put("jid", "xxx@s.whatsapp.net");
+    command.put("showname", "abc");
+    command.put("vcard", "BEGIN:VCARD\nVERSION:3.0\nN:;;;;\nFN:681330000000\nitem1.TEL:+68 133 000 0000\nitem1.X-ABLabel:xxx\nEND:VCARD");
+````
+
+# SendLocation
+````java
+    JSONObject command = new JSONObject();
+    command.put("task_id", 111);
+    command.put("command", "SendLocation");
+    command.put("jid", "sendvcard");
+    command.put("latitude", 98.032313465);
+    command.put("longitude", 10.202121212);
+    command.put("name", "xx");
+    command.put("address", "xx");
+    command.put("comment", "xx");
+````
+
+# Subscribe
+````java
+    JSONObject command = new JSONObject();
+    command.put("command", "Subscribe");
+    command.put("jid", "xxx");
+````
 
 
 
