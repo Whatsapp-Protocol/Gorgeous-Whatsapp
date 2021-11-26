@@ -16,6 +16,7 @@ Telegram :gorgeous008
 ### Test Server:  ws://8.210.124.139:16090
 
 ## -) Support WA Business
+## -) Support multiple devices to send and receive messages
 
 
 # Login
