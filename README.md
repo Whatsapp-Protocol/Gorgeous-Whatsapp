@@ -24,8 +24,8 @@ Telegram :gorgeous008
     //if 
      command.put("command", "login");
     command.put("userName", "xxxx");
-    //config If you have logged in, you can leave it out.
-    command.put("config", Base64.getEncoder().encodeToString(StringUtil.ReadFileContent("xxxx")));
+    //you can use whatsapp_config_tool.apk to get config from phone or simulator
+    command.put("config", Base64.getEncoder().encodeToString(FileUtil.ReadFileContent("xxxx")));
     command.put("proxy_type",-1); // -1 no proxy, 0 http proxy, 1 socks5 proxy
     command.put("proxy_server", "xxx");
     command.put("proxy_port", 1234);
@@ -246,8 +246,8 @@ Telegram :gorgeous008
      command.put("task_id", 4);
     command.put("command", "SendVideo");
     command.put("jid", "xxx@s.whatsapp.net");
-    command.put("data", Base64.getEncoder().encodeToString(StringUtil.ReadFileContent("xxx.mp4")));
-    command.put("thumbnail", Base64.getEncoder().encodeToString(StringUtil.ReadFileContent("main.jpg")));
+    command.put("data", Base64.getEncoder().encodeToString(FileUtil.ReadFileContent("xxx.mp4")));
+    command.put("thumbnail", Base64.getEncoder().encodeToString(FileUtil.ReadFileContent("main.jpg")));
     command.put("caption", "hellokg");
     command.put("duration", 13000);
     command.put("width", 465);
@@ -261,7 +261,7 @@ Telegram :gorgeous008
     command.put("task_id", 4);
     command.put("command", "SendPTT");
     command.put("jid", "xxx@s.whatsapp.net");
-    command.put("data", Base64.getEncoder().encodeToString(StringUtil.ReadFileContent("ptt.ogg")));
+    command.put("data", Base64.getEncoder().encodeToString(FileUtil.ReadFileContent("ptt.ogg")));
                   
 ````
 

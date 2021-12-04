@@ -16,39 +16,10 @@ repositories {
     mavenCentral()
 }
 
-ext {
-    javacppPlatform = 'linux-x86_64,macosx-x86_64,windows-x86_64' // defaults to Loader.getPlatform()
-}
-
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'src/main/libs')
-    compile "org.whispersystems:curve25519-java:0.5.0"
-    compile 'com.google.protobuf:protobuf-java:3.10.0'
-    compile 'org.xerial:sqlite-jdbc:3.34.0'
     compile 'io.netty:netty-all:4.1.59.Final'
-    compile 'org.squirrelframework:squirrel-foundation:0.3.8'
-    compile("com.squareup.okhttp3:okhttp:4.9.0")
-    compile group: 'org.json', name: 'json', version: '20180813'
-    compile 'cn.hutool:hutool-all:5.5.9'
-    compile "org.bytedeco:javacv-platform:1.5.5"
-}
-
-jar {
-    //详细信息参考 https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html
-    archivesBaseName = 'Gorgeous'//基本的文件名
-    archiveVersion = '0.0.1' //版本
-    manifest { //配置jar文件的manifest
-        attributes(
-                "Manifest-Version": 1.0,
-                'Main-Class': 'application.client.login.MainLauncher' //指定main方法所在的文件
-        )
-    }
-    //打包依赖包
-    from {
-        (configurations.runtimeClasspath).collect {
-            it.isDirectory() ? it : zipTree(it)
-        }
-    }
+    compile("com.alibaba:fastjson:1.2.5")
 }
 
 tasks.withType(JavaCompile) {
