@@ -23,6 +23,7 @@ Telegram :gorgeous008
 ````java
     //if 
      command.put("command", "login");
+     command.put("token", "dadsa");
     command.put("userName", "xxxx");
     //you can use whatsapp_config_tool.apk to get config from phone or simulator
     command.put("config", Base64.getEncoder().encodeToString(FileUtil.ReadFileContent("xxxx")));

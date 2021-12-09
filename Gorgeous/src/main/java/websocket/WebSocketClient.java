@@ -33,10 +33,9 @@ public final class WebSocketClient {
     public static int task_id = 1;
    static final String URL = System.getProperty("url", "ws://8.210.124.139:16090");
 
-
    static void ShowHelp(){
        System.out.println(
-               "login 87819378 c:\\87819378.db\n" +
+               "login 87819378  yourtoken c:\\87819378.db\n" +
                        "SyncContact +661212 +123218 +819822\n" +
                        "SendText 8541264751254 hello\n"  +
                        "SetHDHeadData D:\\abc.jpg\n" +
@@ -118,21 +117,22 @@ public final class WebSocketClient {
                 switch (inputArgs[0]) {
                     case "login" :{
                         //you can use whatsapp_config_tool.apk to get config
-                        if (inputArgs.length >= 3)
+                        if (inputArgs.length >= 4)
                         {
                             //login 6666dsfasdfasdfsdf D:\\6666dsfasdfasdfsdf.db
                             command.put("command", "login");
-                            command.put("userName", inputArgs[1]);
-                            command.put("config", Base64.getEncoder().encodeToString(FileUtil.ReadFileContent(inputArgs[2])));
+                            command.put("token", inputArgs[1]);
+                            command.put("userName", inputArgs[2]);
+                            command.put("config", Base64.getEncoder().encodeToString(FileUtil.ReadFileContent(inputArgs[3])));
 
                             //set proxy
-                            if (inputArgs.length >= 6) {
-                                command.put("proxy_type", Integer.valueOf(inputArgs[3])); // -1 no proxy, 0 http proxy, 1 socks5 proxy
-                                command.put("proxy_server", inputArgs[4]);
-                                command.put("proxy_port", Integer.valueOf(inputArgs[5]));
-                                if (inputArgs.length >= 8) {
-                                    command.put("proxy_username", inputArgs[6]); //optional
-                                    command.put("proxy_password", inputArgs[7]); //optional
+                            if (inputArgs.length >= 7) {
+                                command.put("proxy_type", Integer.valueOf(inputArgs[4])); // -1 no proxy, 0 http proxy, 1 socks5 proxy
+                                command.put("proxy_server", inputArgs[5]);
+                                command.put("proxy_port", Integer.valueOf(inputArgs[6]));
+                                if (inputArgs.length >= 9) {
+                                    command.put("proxy_username", inputArgs[7]); //optional
+                                    command.put("proxy_password", inputArgs[8]); //optional
                                 }
                             }
                         }
