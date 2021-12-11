@@ -17,6 +17,7 @@ Telegram :gorgeous008
 
 ## -) Support WA Business
 ## -) Support multiple devices to send and receive messages
+## -) whatsapp_config_tool.apk support the latest whatsapp version
 
 
 # Login
