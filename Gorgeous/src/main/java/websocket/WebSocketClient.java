@@ -381,16 +381,17 @@ public final class WebSocketClient {
                     }
                     case "CheckAccountExist": {
                         command.put("command", "CheckAccountExist");
-                        command.put("cc", inputArgs[1]);
-                        command.put("phone", inputArgs[2]);
+                        command.put("token", inputArgs[1]);
+                        command.put("cc", inputArgs[2]);
+                        command.put("phone", inputArgs[3]);
                         //set proxy
-                        if (inputArgs.length >= 6) {
-                            command.put("proxy_type", Integer.valueOf(inputArgs[3])); // -1 no proxy, 0 http proxy, 1 socks5 proxy
-                            command.put("proxy_server", inputArgs[4]);
-                            command.put("proxy_port", Integer.valueOf(inputArgs[5]));
-                            if (inputArgs.length >= 8) {
-                                command.put("proxy_username", inputArgs[6]); //optional
-                                command.put("proxy_password", inputArgs[7]); //optional
+                        if (inputArgs.length >= 7) {
+                            command.put("proxy_type", Integer.valueOf(inputArgs[4])); // -1 no proxy, 0 http proxy, 1 socks5 proxy
+                            command.put("proxy_server", inputArgs[5]);
+                            command.put("proxy_port", Integer.valueOf(inputArgs[6]));
+                            if (inputArgs.length >= 9) {
+                                command.put("proxy_username", inputArgs[7]); //optional
+                                command.put("proxy_password", inputArgs[8]); //optional
                             }
                         }
                     }

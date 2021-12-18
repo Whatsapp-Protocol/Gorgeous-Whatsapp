@@ -8,6 +8,7 @@ The websocket maximum frame supports 10M, and the media file sent cannot exceed 
 
 ````java
     command.put("command", "CheckAccountExist");
+    command.put("token", "test");
     command.put("cc", "91");
     command.put("phone", "9897409751");
 
@@ -46,8 +47,9 @@ The websocket maximum frame supports 10M, and the media file sent cannot exceed 
 
 # Login
 ````java
-    //if 
-     command.put("command", "login");
+    //if     
+    command.put("token", "test");
+    command.put("command", "login");
     command.put("userName", "xxxx");
     //config If you have logged in, you can leave it out.
     command.put("config", Base64.getEncoder().encodeToString(StringUtil.ReadFileContent("xxxx")));
