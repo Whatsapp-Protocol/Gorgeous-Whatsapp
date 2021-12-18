@@ -51,6 +51,7 @@ The websocket maximum frame supports 10M, and the media file sent cannot exceed 
     command.put("token", "test");
     command.put("command", "login");
     command.put("userName", "xxxx");
+    command.put("token", "test");
     //config If you have logged in, you can leave it out.
     command.put("config", Base64.getEncoder().encodeToString(StringUtil.ReadFileContent("xxxx")));
     command.put("proxy_type",-1); // -1 no proxy, 0 http proxy, 1 socks5 proxy
