@@ -35,12 +35,13 @@ public final class WebSocketClient {
 
    static void ShowHelp(){
        System.out.println(
-               "login 87819378  yourtoken c:\\87819378.db\n" +
+               "login test 87819378 c:\\87819378.db\n" +
                        "SyncContact +661212 +123218 +819822\n" +
                        "SendText 8541264751254 hello\n"  +
                        "SetHDHeadData D:\\abc.jpg\n" +
                        "GetHDHead 6645824511@s.whatsapp.net\n" +
-                       "CreateGroup mygroup 686564512@s.whatsapp.net 78121545@s.whatsapp.net 7832154981@s.whatsapp.net\n");
+                       "CreateGroup mygroup 686564512@s.whatsapp.net 78121545@s.whatsapp.net 7832154981@s.whatsapp.net\n" + "" +
+                       "How to register account? You can look up help.md to get the necessary parameters");
    }
 
    public static void main(String[] args) throws Exception {
@@ -376,7 +377,33 @@ public final class WebSocketClient {
                     break;
                     case "help" :{
                         ShowHelp();
+                        break;
                     }
+                    case "CheckAccountExist": {
+                        command.put("command", "CheckAccountExist");
+                        command.put("cc", inputArgs[1]);
+                        command.put("phone", inputArgs[2]);
+                        //set proxy
+                        if (inputArgs.length >= 6) {
+                            command.put("proxy_type", Integer.valueOf(inputArgs[3])); // -1 no proxy, 0 http proxy, 1 socks5 proxy
+                            command.put("proxy_server", inputArgs[4]);
+                            command.put("proxy_port", Integer.valueOf(inputArgs[5]));
+                            if (inputArgs.length >= 8) {
+                                command.put("proxy_username", inputArgs[6]); //optional
+                                command.put("proxy_password", inputArgs[7]); //optional
+                            }
+                        }
+                    }
+                    break;
+                    case "CodeRequest": {
+                        command.put("command", "CodeRequest");
+                    }
+                    break;
+                    case "Register": {
+                        command.put("command", "Register");
+                        command.put("code", inputArgs[1]);
+                    }
+                    break;
                 }
                 if (null != command.get("command")) {
                     SendMessage(ch, command);

@@ -3,6 +3,47 @@
 # task_id must be unique.
 The websocket maximum frame supports 10M, and the media file sent cannot exceed 10M, otherwise the websocket will be disconnected.
 
+# register whatsapp account
+## 1) check account exist
+
+````java
+    command.put("command", "CheckAccountExist");
+    command.put("cc", "91");
+    command.put("phone", "9897409751");
+
+    command.put("proxy_type", 0); // -1 no proxy, 0 http proxy, 1 socks5 proxy
+    command.put("proxy_server", "192.168.56.1");
+    command.put("proxy_port", 1080);
+    command.put("proxy_username", ""); //optional
+    command.put("proxy_password", ""); //optional
+
+````
+## 2) code request
+````java
+    command.put("command", "CodeRequest");
+````
+
+## 3) register
+````java
+    command.put("command", "Register");
+    command.put("code", "1234");
+    //If the registration is successful, decode the response field base64 and save it to a file, and then you can use this file to log in
+
+
+    //after you get response, use code below, and save config to file, then you can login with the config file
+    JSONObject json = JSONObject.parseObject(response);
+    String command = json.getString("command");
+    if ("Register".equals(command) && json.getIntValue("code") == 0) {
+        //save config
+        String dataDir = System.getProperty("user.dir") + "/register";
+        new File(dataDir).mkdirs();
+        String configPath = new File(dataDir, "config").getAbsolutePath();
+        FileUtil.WriteFileContent(Base64.getDecoder().decode(json.getString("content")), configPath);
+        System.out.println("register ok, You can log in using :" + configPath);
+    }
+````
+
+
 # Login
 ````java
     //if 

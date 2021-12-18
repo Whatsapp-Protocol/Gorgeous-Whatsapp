@@ -1,8 +1,6 @@
 package Util;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 
 public class FileUtil {
     public static byte[] ReadFileContent(String path) {
@@ -27,5 +25,15 @@ public class FileUtil {
             }
         }
         return null;
+    }
+
+    public static void WriteFileContent(byte[] buffer, String path) {
+        try {
+            FileOutputStream outputStream = new FileOutputStream(path);
+            outputStream.write(buffer);
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
