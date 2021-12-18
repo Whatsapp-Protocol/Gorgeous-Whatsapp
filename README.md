@@ -18,6 +18,7 @@ Telegram :gorgeous008
 ## -) Support WA Business
 ## -) Support multiple devices to send and receive messages
 ## -) whatsapp_config_tool.apk support the latest whatsapp version
+## -) update whatsapp cli tool 1.2
 
 
 # Login
@@ -25,6 +26,7 @@ Telegram :gorgeous008
     //if 
      command.put("command", "login");
     command.put("userName", "xxxx");
+    command.put("token", "test");
     //you can use whatsapp_config_tool.apk to get config from phone or simulator
     command.put("config", Base64.getEncoder().encodeToString(FileUtil.ReadFileContent("xxxx")));
     command.put("proxy_type",-1); // -1 no proxy, 0 http proxy, 1 socks5 proxy
