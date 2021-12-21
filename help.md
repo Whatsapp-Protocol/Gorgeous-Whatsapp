@@ -22,6 +22,7 @@ The websocket maximum frame supports 10M, and the media file sent cannot exceed 
 ## 2) code request
 ````java
     command.put("command", "CodeRequest");
+    command.put("method", "sms"); //sms voice
 ````
 
 ## 3) register

@@ -40,7 +40,10 @@ public final class WebSocketClient {
                        "SendText 8541264751254 hello\n"  +
                        "SetHDHeadData D:\\abc.jpg\n" +
                        "GetHDHead 6645824511@s.whatsapp.net\n" +
-                       "CreateGroup mygroup 686564512@s.whatsapp.net 78121545@s.whatsapp.net 7832154981@s.whatsapp.net\n" + "" +
+                       "CreateGroup mygroup 686564512@s.whatsapp.net 78121545@s.whatsapp.net 7832154981@s.whatsapp.net\n" +
+                       "CheckAccountExist test 91 172837181\n" +
+                       "CodeRequest sms\n" +
+                       "Register 123456\n" +
                        "How to register account? You can look up help.md to get the necessary parameters");
    }
 
@@ -398,6 +401,7 @@ public final class WebSocketClient {
                     break;
                     case "CodeRequest": {
                         command.put("command", "CodeRequest");
+                        command.put("method", inputArgs[1]); //sms voice
                     }
                     break;
                     case "Register": {
