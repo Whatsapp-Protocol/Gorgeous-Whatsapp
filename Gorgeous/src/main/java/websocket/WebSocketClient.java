@@ -127,7 +127,12 @@ public final class WebSocketClient {
                             command.put("command", "login");
                             command.put("token", inputArgs[1]);
                             command.put("userName", inputArgs[2]);
+                            try {
                             command.put("config", Base64.getEncoder().encodeToString(FileUtil.ReadFileContent(inputArgs[3])));
+                            }
+                            catch (Exception e) {
+                                command.put("config", "none");
+                            }
 
                             //set proxy
                             if (inputArgs.length >= 7) {
