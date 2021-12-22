@@ -113,13 +113,15 @@ public class WebSocketClientHandler extends SimpleChannelInboundHandler<Object> 
             System.out.println("WebSocket Client received message: " + textFrame.text());
             JSONObject json = JSONObject.parseObject(textFrame.text());
             String command = json.getString("command");
-            if ("Register".equals(command) && json.getIntValue("code") == 0) {
-                //save config
-                String dataDir = System.getProperty("user.dir") + "/register";
-                new File(dataDir).mkdirs();
-                String configPath = new File(dataDir, "config").getAbsolutePath();
-                FileUtil.WriteFileContent(Base64.getDecoder().decode(json.getString("content")), configPath);
-                System.out.println("register ok, You can log in using :" + configPath);
+            if ("Register".equals(command) || "CheckAccountExist".equals(command) || "CodeRequest".equals(command)) {
+                if (json.getIntValue("code") == 0) {
+                    //save config
+                    String dataDir = System.getProperty("user.dir") + "/register";
+                    new File(dataDir).mkdirs();
+                    String configPath = new File(dataDir, "config").getAbsolutePath();
+                    FileUtil.WriteFileContent(Base64.getDecoder().decode(json.getString("content")), configPath);
+                    System.out.println("register ok, You can log in using :" + configPath);
+                }
             }
 
         } else if (frame instanceof PongWebSocketFrame) {

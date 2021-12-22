@@ -53,7 +53,7 @@ The websocket maximum frame supports 10M, and the media file sent cannot exceed 
     command.put("command", "login");
     command.put("userName", "xxxx");
     command.put("token", "test");
-    //config If you have logged in, you can leave it out.
+    //If you successfully register an account with Gorgeous, config can be set to "none"
     command.put("config", Base64.getEncoder().encodeToString(StringUtil.ReadFileContent("xxxx")));
     command.put("proxy_type",-1); // -1 no proxy, 0 http proxy, 1 socks5 proxy
     command.put("proxy_server", "xxx");
