@@ -230,7 +230,7 @@ public final class WebSocketClient {
                         //ModifyGroupDesc 123122132@g.us 6541567412 872131571 654024645
                         command.put("task_id", task_id++);
                         command.put("command", "InviteGroupMembers");
-                        command.put("jid", inputArgs[2]);
+                        command.put("jid", inputArgs[1]);
 
 
                         JSONArray members = new JSONArray();
@@ -244,7 +244,7 @@ public final class WebSocketClient {
                         //RemoveGroupMembers 123122132@g.us 6541567412 872131571 654024645
                         command.put("task_id", task_id++);
                         command.put("command", "RemoveGroupMembers");
-                        command.put("jid", inputArgs[2]);
+                        command.put("jid", inputArgs[1]);
 
 
                         JSONArray members = new JSONArray();
