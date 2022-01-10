@@ -5,6 +5,9 @@ https://github.com/lovethiscode/Gorgeous_Line
 # Gorgeous
 Telegram :gorgeous008
 
+
+[WebDemo](http://8.210.124.139)
+
 <a href="https://paypal.me/welove88" target="_blank"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" /></a>
 
 # The WhatsApp Websocket API
@@ -20,6 +23,32 @@ Telegram :gorgeous008
 ## -) whatsapp_config_tool.apk support the latest whatsapp version
 ## -) update whatsapp cli tool 1.2
 
+# RegisterAccount. 3 steps blow.
+## CheckAccountExist
+````java
+ command.put("command", "CheckAccountExist");
+  command.put("token", "test");
+  command.put("cc", "91");
+  command.put("phone", "451245721247");
+ 
+  command.put("proxy_type",-1); // -1 no proxy, 0 http proxy, 1 socks5 proxy
+  command.put("proxy_server", "xxx");
+  command.put("proxy_port", 1234);
+  command.put("proxy_username", ""); //optional
+  command.put("proxy_password", ""); //optional
+````
+
+## CodeRequest
+````java
+ command.put("command", "CodeRequest");
+ command.put("method",  "sms"); //sms or voice
+````
+
+## Register
+````java
+  command.put("command", "Register");
+  command.put("code", "123456");
+````
 
 # Login
 ````java
@@ -27,9 +56,11 @@ Telegram :gorgeous008
      command.put("command", "login");
      command.put("token", "dadsa");
     command.put("userName", "xxxx");
-    command.put("token", "test");
-    //you can use whatsapp_config_tool.apk to get config from phone or simulator
-    command.put("config", Base64.getEncoder().encodeToString(FileUtil.ReadFileContent("xxxx")));
+    command.put("token", "test");   
+    // if you register account use websocket,put config "none"
+    //command.put("config", "none");
+     //you can use whatsapp_config_tool.apk to get config from phone or simulator
+     command.put("config", Base64.getEncoder().encodeToString(FileUtil.ReadFileContent("xxxx")));
     command.put("proxy_type",-1); // -1 no proxy, 0 http proxy, 1 socks5 proxy
     command.put("proxy_server", "xxx");
     command.put("proxy_port", 1234);
