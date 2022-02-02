@@ -59,7 +59,6 @@ Telegram :gorgeous008
 ````java
     //if 
      command.put("command", "login");
-     command.put("token", "dadsa");
     command.put("userName", "xxxx");
     command.put("token", "test");   
     // if you register account use websocket,put config "none"
