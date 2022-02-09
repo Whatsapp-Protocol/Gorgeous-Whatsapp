@@ -17,6 +17,9 @@ Telegram :gorgeous008
   2)  The websocket maximum frame supports 10M, and the media file sent cannot exceed 10M, otherwise the websocket will be disconnected.
 
 ### Test Server:  ws://8.210.124.139:16090
+
+**The test account has been banned, you need to use the demo to register an account.**
+
 [Vue Demo](http://8.210.124.139)
 
 [Vue Demo](http://8.210.124.139)
