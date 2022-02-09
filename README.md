@@ -18,6 +18,14 @@ Telegram :gorgeous008
 
 ### Test Server:  ws://8.210.124.139:16090
 
+**The test account has been banned, you need to use the demo to register an account.**
+
+[Vue Demo](http://8.210.124.139)
+
+[Vue Demo](http://8.210.124.139)
+
+[Vue Demo](http://8.210.124.139)
+
 ## -) Support WA Business
 ## -) Support multiple devices to send and receive messages
 ## -) whatsapp_config_tool.apk support the latest whatsapp version
@@ -54,7 +62,6 @@ Telegram :gorgeous008
 ````java
     //if 
      command.put("command", "login");
-     command.put("token", "dadsa");
     command.put("userName", "xxxx");
     command.put("token", "test");   
     // if you register account use websocket,put config "none"
