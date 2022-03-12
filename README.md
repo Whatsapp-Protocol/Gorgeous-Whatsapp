@@ -3,7 +3,7 @@
 https://github.com/lovethiscode/Gorgeous_Line
 
 # Gorgeous
-Telegram :gorgeous008
+Telegram :gorgeous006
 
 
 [WebDemo](http://8.210.124.139)
